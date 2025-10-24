@@ -1,2 +1,2 @@
-# clearpath-backend
+# ClearPath
 Laravel backend for ClearPath MVP integrated with NeonDB
