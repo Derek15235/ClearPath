@@ -1,8 +1,19 @@
+import { Calendar } from 'lucide-react'
+import { PageHeader } from '../components/ui/PageHeader'
+import { EmptyState } from '../components/ui/EmptyState'
+
 export default function CalendarPage() {
   return (
-    <div className="space-y-2">
-      <h1 className="text-2xl font-semibold text-content">Calendar</h1>
-      <p className="text-content-secondary">Your compliance deadlines will appear here.</p>
-    </div>
+    <>
+      <PageHeader
+        title="Calendar"
+        description="Your compliance deadlines and task schedule — coming in Phase 7."
+      />
+      <EmptyState
+        icon={Calendar}
+        heading="Calendar coming soon"
+        description="Auto-populated compliance deadlines and manual task management will appear here."
+      />
+    </>
   )
 }

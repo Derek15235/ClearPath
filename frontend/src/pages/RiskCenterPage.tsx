@@ -1,8 +1,19 @@
+import { ShieldAlert } from 'lucide-react'
+import { PageHeader } from '../components/ui/PageHeader'
+import { EmptyState } from '../components/ui/EmptyState'
+
 export default function RiskCenterPage() {
   return (
-    <div className="space-y-2">
-      <h1 className="text-2xl font-semibold text-content">Risk Center</h1>
-      <p className="text-content-secondary">Your compliance risk analysis will appear here.</p>
-    </div>
+    <>
+      <PageHeader
+        title="Risk Center"
+        description="Your personalized compliance risk analysis — coming in Phase 6."
+      />
+      <EmptyState
+        icon={ShieldAlert}
+        heading="Risk Center coming soon"
+        description="Your compliance score, risk breakdown by category, and actionable next steps will appear here."
+      />
+    </>
   )
 }

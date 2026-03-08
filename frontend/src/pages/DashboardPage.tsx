@@ -1,8 +1,19 @@
+import { LayoutDashboard } from 'lucide-react'
+import { PageHeader } from '../components/ui/PageHeader'
+import { EmptyState } from '../components/ui/EmptyState'
+
 export default function DashboardPage() {
   return (
-    <div className="space-y-2">
-      <h1 className="text-2xl font-semibold text-content">Dashboard</h1>
-      <p className="text-content-secondary">Your compliance overview will appear here.</p>
-    </div>
+    <>
+      <PageHeader
+        title="Dashboard"
+        description="Your compliance overview — coming in Phase 8."
+      />
+      <EmptyState
+        icon={LayoutDashboard}
+        heading="Dashboard coming soon"
+        description="Your compliance score, upcoming deadlines, and risk overview will appear here once the compliance pipeline is live."
+      />
+    </>
   )
 }
