@@ -1,10 +1,37 @@
-// UI-01: App shell with top navigation bar, brand logo, and user profile menu
-// Stubs -- implementations added when TopNavigationBar.tsx exists (Plan 02)
+import { render, screen } from '@testing-library/react'
+import userEvent from '@testing-library/user-event'
+import { MemoryRouter } from 'react-router-dom'
+import { TopNavigationBar } from '../TopNavigationBar'
+
+function renderNav(initialPath = '/dashboard') {
+  return render(
+    <MemoryRouter initialEntries={[initialPath]}>
+      <TopNavigationBar />
+    </MemoryRouter>
+  )
+}
 
 describe('TopNavigationBar', () => {
-  it.todo('renders brand logo text "ClearPath"')
-  it.todo('renders nav links: Dashboard, Calendar, Vault, Risk Center')
-  it.todo('marks active nav link when on its route')
-  it.todo('renders user profile menu trigger button')
-  it.todo('shows mobile hamburger button below md breakpoint')
+  it('renders brand logo text "ClearPath"', () => {
+    renderNav()
+    expect(screen.getByText('ClearPath')).toBeInTheDocument()
+  })
+
+  it('renders all four nav links', () => {
+    renderNav()
+    expect(screen.getByRole('link', { name: 'Dashboard' })).toBeInTheDocument()
+    expect(screen.getByRole('link', { name: 'Calendar' })).toBeInTheDocument()
+    expect(screen.getByRole('link', { name: 'Vault' })).toBeInTheDocument()
+    expect(screen.getByRole('link', { name: 'Risk Center' })).toBeInTheDocument()
+  })
+
+  it('renders user profile menu trigger button', () => {
+    renderNav()
+    expect(screen.getByRole('button', { name: /user profile menu/i })).toBeInTheDocument()
+  })
+
+  it('renders mobile hamburger button', () => {
+    renderNav()
+    expect(screen.getByRole('button', { name: /open menu/i })).toBeInTheDocument()
+  })
 })
