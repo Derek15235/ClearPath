@@ -37,7 +37,7 @@ Decimal phases appear between their surrounding integers in numeric order.
 **Plans**: 3 plans
 
 Plans:
-- [ ] 01-01-PLAN.md — Project scaffolding (Vite + React + TypeScript + Tailwind + test infrastructure)
+- [x] 01-01-PLAN.md — Project scaffolding (Vite + React + TypeScript + Tailwind + test infrastructure)
 - [ ] 01-02-PLAN.md — App layout shell (TopNavigationBar, routing, responsive layout, page transitions)
 - [ ] 01-03-PLAN.md — Design system UI components (Button, Card, Input, Modal, Skeleton, ErrorState, EmptyState, Badge, PageHeader)
 
@@ -189,7 +189,7 @@ Phases execute in numeric order: 1 -> 2 -> 3 -> 4 -> 5 -> 6 -> 7 -> 8 -> 9
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
-| 1. App Shell and Infrastructure | 0/3 | Not started | - |
+| 1. App Shell and Infrastructure | 1/3 | In progress | - |
 | 2. Authentication | 0/2 | Not started | - |
 | 3. Business Onboarding | 0/3 | Not started | - |
 | 4. Regulation Data Pipeline | 0/5 | Not started | - |
