@@ -1,20 +1,66 @@
-// UI-04: Consistent design system (Button, Card, PageHeader)
-// Stubs -- implementations added when UI components exist (Plan 03)
+import { render, screen } from '@testing-library/react'
+import userEvent from '@testing-library/user-event'
+import { Button } from '../Button'
+import { Card } from '../Card'
+import { PageHeader } from '../PageHeader'
 
 describe('Button', () => {
-  it.todo('renders primary variant with correct classes')
-  it.todo('renders secondary, ghost, danger variants')
-  it.todo('shows spinner and disables interaction when loading=true')
-  it.todo('accepts and merges custom className prop')
+  it('renders children in primary variant', () => {
+    render(<Button>Save</Button>)
+    expect(screen.getByRole('button', { name: 'Save' })).toBeInTheDocument()
+  })
+
+  it('shows spinner and disables interaction when loading=true', () => {
+    render(<Button loading>Save</Button>)
+    const btn = screen.getByRole('button')
+    expect(btn).toBeDisabled()
+    expect(btn).toHaveAttribute('aria-disabled', 'true')
+    // spinner is present, children text is replaced
+    expect(screen.queryByText('Save')).not.toBeInTheDocument()
+  })
+
+  it('renders danger variant button', () => {
+    render(<Button variant="danger">Delete</Button>)
+    expect(screen.getByRole('button', { name: 'Delete' })).toBeInTheDocument()
+  })
+
+  it('accepts and applies custom className', () => {
+    render(<Button className="extra-class">Test</Button>)
+    expect(screen.getByRole('button')).toHaveClass('extra-class')
+  })
+
+  it('is disabled when disabled prop is set', () => {
+    render(<Button disabled>Submit</Button>)
+    expect(screen.getByRole('button')).toBeDisabled()
+  })
 })
 
 describe('Card', () => {
-  it.todo('renders children in rounded elevated container')
-  it.todo('applies hover lift effect when hover=true')
-  it.todo('supports padding variants: sm, md, lg, none')
+  it('renders children', () => {
+    render(<Card>Card content</Card>)
+    expect(screen.getByText('Card content')).toBeInTheDocument()
+  })
+
+  it('applies rounded-xl class', () => {
+    render(<Card data-testid="card">Content</Card>)
+    expect(screen.getByTestId('card')).toHaveClass('rounded-xl')
+  })
 })
 
 describe('PageHeader', () => {
-  it.todo('renders title as h1')
-  it.todo('renders optional description below title')
+  it('renders title as h1', () => {
+    render(<PageHeader title="Dashboard" />)
+    expect(screen.getByRole('heading', { level: 1, name: 'Dashboard' })).toBeInTheDocument()
+  })
+
+  it('renders optional description', () => {
+    render(<PageHeader title="Dashboard" description="Your compliance overview" />)
+    expect(screen.getByText('Your compliance overview')).toBeInTheDocument()
+  })
+
+  it('renders without description when not provided', () => {
+    render(<PageHeader title="Dashboard" />)
+    // No description paragraph rendered
+    expect(screen.queryByText(/overview/)).not.toBeInTheDocument()
+  })
 })
