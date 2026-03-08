@@ -1,2 +1,2 @@
 # ClearPath
-Laravel backend for ClearPath MVP integrated with NeonDB
+An AI-Enhanced Compliance tracker/dashboard
