@@ -34,12 +34,12 @@ Decimal phases appear between their surrounding integers in numeric order.
   3. Layout renders correctly on mobile, tablet, and desktop viewports
   4. All pages show loading skeletons while data is pending and meaningful error states when requests fail
   5. Page transitions animate smoothly between routes
-**Plans**: TBD
+**Plans**: 3 plans
 
 Plans:
-- [ ] 01-01: Project scaffolding (Vite + React + TypeScript + Tailwind + dependencies)
-- [ ] 01-02: App layout shell (TopNavigationBar, routing, responsive layout)
-- [ ] 01-03: Design system and shared UI components (theme tokens, Button, Card, Input, Modal, loading skeletons, error states, framer-motion transitions)
+- [ ] 01-01-PLAN.md — Project scaffolding (Vite + React + TypeScript + Tailwind + test infrastructure)
+- [ ] 01-02-PLAN.md — App layout shell (TopNavigationBar, routing, responsive layout, page transitions)
+- [ ] 01-03-PLAN.md — Design system UI components (Button, Card, Input, Modal, Skeleton, ErrorState, EmptyState, Badge, PageHeader)
 
 ### Phase 2: Authentication
 **Goal**: Users can securely create accounts, log in, and maintain sessions -- with unauthenticated users blocked from protected pages
