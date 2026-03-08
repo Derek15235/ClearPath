@@ -83,11 +83,11 @@
 
 ### UI & Infrastructure
 
-- [ ] **UI-01**: App shell with top navigation bar, brand logo, and user profile menu
-- [ ] **UI-02**: Client-side routing between all feature pages
-- [ ] **UI-03**: Fully responsive layout (mobile, tablet, desktop)
+- [x] **UI-01**: App shell with top navigation bar, brand logo, and user profile menu
+- [x] **UI-02**: Client-side routing between all feature pages
+- [x] **UI-03**: Fully responsive layout (mobile, tablet, desktop)
 - [ ] **UI-04**: Consistent design system using Tailwind theme tokens (colors, spacing, typography)
-- [ ] **UI-05**: Page transitions and micro-interactions via framer-motion
+- [x] **UI-05**: Page transitions and micro-interactions via framer-motion
 - [ ] **UI-06**: Loading skeletons and error states for all async data
 
 ## v2 Requirements
@@ -185,11 +185,11 @@
 | BOT-06 | Phase 5 | Pending |
 | BOT-07 | Phase 5 | Pending |
 | BOT-08 | Phase 5 | Pending |
-| UI-01 | Phase 1 | Pending |
-| UI-02 | Phase 1 | Pending |
-| UI-03 | Phase 1 | Pending |
+| UI-01 | Phase 1 | Complete |
+| UI-02 | Phase 1 | Complete |
+| UI-03 | Phase 1 | Complete |
 | UI-04 | Phase 1 | Pending |
-| UI-05 | Phase 1 | Pending |
+| UI-05 | Phase 1 | Complete |
 | UI-06 | Phase 1 | Pending |
 
 **Coverage:**

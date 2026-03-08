@@ -3,15 +3,15 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
 status: executing
-stopped_at: Completed 01-01-PLAN.md
-last_updated: "2026-03-08T16:58:13Z"
-last_activity: 2026-03-08 -- Completed Plan 01-01 (Project Scaffolding)
+stopped_at: Completed 01-02-PLAN.md
+last_updated: "2026-03-08T21:14:34.588Z"
+last_activity: 2026-03-08 -- Completed Plan 01-02 (App Layout Shell)
 progress:
   total_phases: 9
   completed_phases: 0
   total_plans: 3
-  completed_plans: 1
-  percent: 3
+  completed_plans: 2
+  percent: 67
 ---
 
 # Project State
@@ -26,28 +26,28 @@ See: .planning/PROJECT.md (updated 2026-03-07)
 ## Current Position
 
 Phase: 1 of 9 (App Shell and Infrastructure)
-Plan: 1 of 3 in current phase
+Plan: 2 of 3 in current phase
 Status: Executing
-Last activity: 2026-03-08 -- Completed Plan 01-01 (Project Scaffolding)
+Last activity: 2026-03-08 -- Completed Plan 01-02 (App Layout Shell)
 
-Progress: [#░░░░░░░░░] 3%
+Progress: [███████░░░] 67%
 
 ## Performance Metrics
 
 **Velocity:**
-- Total plans completed: 1
-- Average duration: 5 min
-- Total execution time: 0.08 hours
+- Total plans completed: 2
+- Average duration: 9 min
+- Total execution time: 0.28 hours
 
 **By Phase:**
 
 | Phase | Plans | Total | Avg/Plan |
 |-------|-------|-------|----------|
-| 1 - App Shell | 1/3 | 5 min | 5 min |
+| 1 - App Shell | 2/3 | 17 min | 9 min |
 
 **Recent Trend:**
-- Last 5 plans: 01-01 (5 min)
-- Trend: First plan -- baseline established
+- Last 5 plans: 01-01 (5 min), 01-02 (12 min)
+- Trend: Second plan took longer due to TDD + human checkpoint
 
 *Updated after each plan completion*
 
@@ -64,6 +64,9 @@ Recent decisions affecting current work:
 - [01-01]: Excluded test files from tsconfig.app.json to avoid Vitest globals type errors during tsc build
 - [01-01]: Scoped .gitignore lib/ and build/ rules to root-only (/lib/, /build/) to avoid blocking frontend/src/lib/
 - [01-01]: Used Vite triple-slash reference for Vitest config typing
+- [01-02]: Used inline PageLoadingFallback in routes.tsx to avoid circular dependency with Plan 03 Skeleton
+- [01-02]: Used createMemoryRouter in router tests for isolated route testing without layout dependencies
+- [01-02]: NAV_LINKS exported as const from TopNavigationBar for reuse in MobileNav
 
 ### Pending Todos
 
@@ -77,6 +80,6 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-03-08T16:58:13Z
-Stopped at: Completed 01-01-PLAN.md
-Resume file: .planning/phases/01-app-shell-and-infrastructure/01-01-SUMMARY.md
+Last session: 2026-03-08T21:14:34.585Z
+Stopped at: Completed 01-02-PLAN.md
+Resume file: .planning/phases/01-app-shell-and-infrastructure/01-02-SUMMARY.md
