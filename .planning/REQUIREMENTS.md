@@ -1,7 +1,7 @@
 # Requirements: ClearPath
 
 **Defined:** 2026-03-07
-**Core Value:** SMB owners can instantly understand what compliance obligations apply to them and what they need to do next — no legal expertise required.
+**Core Value:** SMB owners can instantly understand what compliance obligations apply to them and what they need to do next -- no legal expertise required.
 
 ## v1 Requirements
 
@@ -38,7 +38,7 @@
 - [ ] **RISK-02**: Risk Center displays compliance gaps grouped by category (Health, Labor, Tax, Licensing, Privacy)
 - [ ] **RISK-03**: Each risk item shows plain-English explanation, severity level, and actionable next step
 - [ ] **RISK-04**: Aggregate compliance score (0-100) computed from docs uploaded, deadlines met, and risk flags resolved
-- [ ] **RISK-05**: Score breakdown is transparent — user can see what factors contribute
+- [ ] **RISK-05**: Score breakdown is transparent -- user can see what factors contribute
 - [ ] **RISK-06**: Risk report updates when user uploads documents or completes tasks
 
 ### Dashboard
@@ -79,7 +79,7 @@
 - [ ] **BOT-05**: Every response includes source citations (regulation name, section, source URL)
 - [ ] **BOT-06**: Responses include contextual action links ("Add to Tasks", "Upload Document", "View in Risk Center")
 - [ ] **BOT-07**: Prominent "not legal advice" disclaimer on chat interface
-- [ ] **BOT-08**: Confidence gating — low-confidence answers display a warning and suggest consulting a professional
+- [ ] **BOT-08**: Confidence gating -- low-confidence answers display a warning and suggest consulting a professional
 
 ### UI & Infrastructure
 
@@ -133,70 +133,70 @@
 
 | Requirement | Phase | Status |
 |-------------|-------|--------|
-| AUTH-01 | — | Pending |
-| AUTH-02 | — | Pending |
-| AUTH-03 | — | Pending |
-| AUTH-04 | — | Pending |
-| AUTH-05 | — | Pending |
-| AUTH-06 | — | Pending |
-| ONBD-01 | — | Pending |
-| ONBD-02 | — | Pending |
-| ONBD-03 | — | Pending |
-| ONBD-04 | — | Pending |
-| ONBD-05 | — | Pending |
-| DATA-01 | — | Pending |
-| DATA-02 | — | Pending |
-| DATA-03 | — | Pending |
-| DATA-04 | — | Pending |
-| DATA-05 | — | Pending |
-| DATA-06 | — | Pending |
-| DATA-07 | — | Pending |
-| RISK-01 | — | Pending |
-| RISK-02 | — | Pending |
-| RISK-03 | — | Pending |
-| RISK-04 | — | Pending |
-| RISK-05 | — | Pending |
-| RISK-06 | — | Pending |
-| DASH-01 | — | Pending |
-| DASH-02 | — | Pending |
-| DASH-03 | — | Pending |
-| DASH-04 | — | Pending |
-| DASH-05 | — | Pending |
-| DASH-06 | — | Pending |
-| CAL-01 | — | Pending |
-| CAL-02 | — | Pending |
-| CAL-03 | — | Pending |
-| CAL-04 | — | Pending |
-| CAL-05 | — | Pending |
-| CAL-06 | — | Pending |
-| CAL-07 | — | Pending |
-| VAULT-01 | — | Pending |
-| VAULT-02 | — | Pending |
-| VAULT-03 | — | Pending |
-| VAULT-04 | — | Pending |
-| VAULT-05 | — | Pending |
-| VAULT-06 | — | Pending |
-| VAULT-07 | — | Pending |
-| BOT-01 | — | Pending |
-| BOT-02 | — | Pending |
-| BOT-03 | — | Pending |
-| BOT-04 | — | Pending |
-| BOT-05 | — | Pending |
-| BOT-06 | — | Pending |
-| BOT-07 | — | Pending |
-| BOT-08 | — | Pending |
-| UI-01 | — | Pending |
-| UI-02 | — | Pending |
-| UI-03 | — | Pending |
-| UI-04 | — | Pending |
-| UI-05 | — | Pending |
-| UI-06 | — | Pending |
+| AUTH-01 | Phase 2 | Pending |
+| AUTH-02 | Phase 2 | Pending |
+| AUTH-03 | Phase 2 | Pending |
+| AUTH-04 | Phase 2 | Pending |
+| AUTH-05 | Phase 2 | Pending |
+| AUTH-06 | Phase 2 | Pending |
+| ONBD-01 | Phase 3 | Pending |
+| ONBD-02 | Phase 3 | Pending |
+| ONBD-03 | Phase 3 | Pending |
+| ONBD-04 | Phase 3 | Pending |
+| ONBD-05 | Phase 3 | Pending |
+| DATA-01 | Phase 4 | Pending |
+| DATA-02 | Phase 4 | Pending |
+| DATA-03 | Phase 4 | Pending |
+| DATA-04 | Phase 4 | Pending |
+| DATA-05 | Phase 4 | Pending |
+| DATA-06 | Phase 4 | Pending |
+| DATA-07 | Phase 4 | Pending |
+| RISK-01 | Phase 6 | Pending |
+| RISK-02 | Phase 6 | Pending |
+| RISK-03 | Phase 6 | Pending |
+| RISK-04 | Phase 6 | Pending |
+| RISK-05 | Phase 6 | Pending |
+| RISK-06 | Phase 6 | Pending |
+| DASH-01 | Phase 8 | Pending |
+| DASH-02 | Phase 8 | Pending |
+| DASH-03 | Phase 8 | Pending |
+| DASH-04 | Phase 8 | Pending |
+| DASH-05 | Phase 8 | Pending |
+| DASH-06 | Phase 8 | Pending |
+| CAL-01 | Phase 7 | Pending |
+| CAL-02 | Phase 7 | Pending |
+| CAL-03 | Phase 7 | Pending |
+| CAL-04 | Phase 7 | Pending |
+| CAL-05 | Phase 7 | Pending |
+| CAL-06 | Phase 7 | Pending |
+| CAL-07 | Phase 7 | Pending |
+| VAULT-01 | Phase 9 | Pending |
+| VAULT-02 | Phase 9 | Pending |
+| VAULT-03 | Phase 9 | Pending |
+| VAULT-04 | Phase 9 | Pending |
+| VAULT-05 | Phase 9 | Pending |
+| VAULT-06 | Phase 9 | Pending |
+| VAULT-07 | Phase 9 | Pending |
+| BOT-01 | Phase 5 | Pending |
+| BOT-02 | Phase 5 | Pending |
+| BOT-03 | Phase 5 | Pending |
+| BOT-04 | Phase 5 | Pending |
+| BOT-05 | Phase 5 | Pending |
+| BOT-06 | Phase 5 | Pending |
+| BOT-07 | Phase 5 | Pending |
+| BOT-08 | Phase 5 | Pending |
+| UI-01 | Phase 1 | Pending |
+| UI-02 | Phase 1 | Pending |
+| UI-03 | Phase 1 | Pending |
+| UI-04 | Phase 1 | Pending |
+| UI-05 | Phase 1 | Pending |
+| UI-06 | Phase 1 | Pending |
 
 **Coverage:**
-- v1 requirements: 52 total
-- Mapped to phases: 0
-- Unmapped: 52 (will be mapped during roadmap creation)
+- v1 requirements: 58 total
+- Mapped to phases: 58
+- Unmapped: 0
 
 ---
 *Requirements defined: 2026-03-07*
-*Last updated: 2026-03-07 after initial definition*
+*Last updated: 2026-03-07 after roadmap creation (traceability updated)*
