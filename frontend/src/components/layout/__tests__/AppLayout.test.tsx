@@ -1,5 +1,9 @@
 import { render, screen } from '@testing-library/react'
 import { MemoryRouter, Route, Routes } from 'react-router-dom'
+import { mockSupabase } from '../../../test/mocks/supabase'
+
+vi.mock('../../../lib/supabase', () => ({ supabase: mockSupabase }))
+
 import { AppLayout } from '../AppLayout'
 
 describe('AppLayout', () => {

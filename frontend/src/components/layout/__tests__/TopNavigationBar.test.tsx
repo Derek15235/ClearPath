@@ -1,6 +1,10 @@
 import { render, screen } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import { MemoryRouter } from 'react-router-dom'
+import { mockSupabase } from '../../../test/mocks/supabase'
+
+vi.mock('../../../lib/supabase', () => ({ supabase: mockSupabase }))
+
 import { TopNavigationBar } from '../TopNavigationBar'
 
 function renderNav(initialPath = '/dashboard') {

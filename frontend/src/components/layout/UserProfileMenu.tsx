@@ -1,7 +1,16 @@
 import * as DropdownMenu from '@radix-ui/react-dropdown-menu'
 import { User, Settings, LogOut } from 'lucide-react'
+import { useNavigate } from 'react-router-dom'
+import { supabase } from '../../lib/supabase'
 
 export function UserProfileMenu() {
+  const navigate = useNavigate()
+
+  async function handleSignOut() {
+    await supabase.auth.signOut()
+    navigate('/auth')
+  }
+
   return (
     <DropdownMenu.Root>
       <DropdownMenu.Trigger asChild>
@@ -28,8 +37,11 @@ export function UserProfileMenu() {
             Settings
           </DropdownMenu.Item>
           <DropdownMenu.Separator className="my-1 h-px bg-border" />
-          <DropdownMenu.Item className="flex items-center gap-2 px-3 py-2 rounded-lg
-            text-error hover:bg-error/10 cursor-pointer outline-none transition-colors">
+          <DropdownMenu.Item
+            onClick={handleSignOut}
+            className="flex items-center gap-2 px-3 py-2 rounded-lg
+              text-error hover:bg-error/10 cursor-pointer outline-none transition-colors"
+          >
             <LogOut className="w-4 h-4" />
             Sign out
           </DropdownMenu.Item>
