@@ -34,7 +34,7 @@ describe('RequireAuth', () => {
 
   it('renders PageSkeleton when loading is true', () => {
     renderWithRouter({ session: null, loading: true })
-    expect(screen.getByRole('status', { name: /loading/i })).toBeInTheDocument()
+    expect(screen.getByRole('status', { name: /loading page/i })).toBeInTheDocument()
     expect(screen.queryByText('Protected Content')).not.toBeInTheDocument()
   })
 
