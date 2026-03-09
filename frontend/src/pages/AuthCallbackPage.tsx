@@ -13,6 +13,15 @@ export function AuthCallbackPage() {
   const navigate = useNavigate()
 
   useEffect(() => {
+    const hashParams = new URLSearchParams(window.location.hash.slice(1))
+    const queryParams = new URLSearchParams(window.location.search)
+    const type = hashParams.get('type') ?? queryParams.get('type')
+
+    if (type === 'recovery') {
+      navigate('/auth?view=update-password', { replace: true })
+      return
+    }
+
     supabase.auth.getSession().then(({ data: { session } }) => {
       if (session) {
         navigate('/dashboard', { replace: true })

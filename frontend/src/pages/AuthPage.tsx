@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, useSearchParams } from 'react-router-dom'
 import { useForm } from 'react-hook-form'
 import { supabase } from '../lib/supabase'
 import { useAuthStore } from '../stores/authStore'
@@ -7,7 +7,7 @@ import { Button } from '../components/ui/Button'
 import { Input } from '../components/ui/Input'
 import { Card } from '../components/ui/Card'
 
-type AuthView = 'login' | 'signup' | 'verify-email' | 'reset-password'
+type AuthView = 'login' | 'signup' | 'verify-email' | 'reset-password' | 'update-password'
 
 interface FormValues {
   email: string
@@ -16,8 +16,11 @@ interface FormValues {
 
 export function AuthPage() {
   const navigate = useNavigate()
+  const [searchParams] = useSearchParams()
   const { session } = useAuthStore()
-  const [view, setView] = useState<AuthView>('login')
+  const [view, setView] = useState<AuthView>(
+    (searchParams.get('view') as AuthView) ?? 'login'
+  )
   const [error, setError] = useState<string | null>(null)
   const [info, setInfo] = useState<string | null>(null)
   const [pendingEmail, setPendingEmail] = useState('')
@@ -30,7 +33,7 @@ export function AuthPage() {
 
   // Redirect if already authenticated
   useEffect(() => {
-    if (session) navigate('/dashboard', { replace: true })
+    if (session && view !== 'update-password') navigate('/dashboard', { replace: true })
   }, [session, navigate])
 
   async function onLogin({ email, password }: FormValues) {
@@ -69,6 +72,16 @@ export function AuthPage() {
     } else {
       setInfo('Verification email resent.')
     }
+  }
+
+  async function onUpdatePassword({ password }: FormValues) {
+    setError(null)
+    const { error } = await supabase.auth.updateUser({ password })
+    if (error) {
+      setError(error.message)
+      return
+    }
+    navigate('/dashboard', { replace: true })
   }
 
   async function onReset({ email }: FormValues) {
@@ -261,6 +274,27 @@ export function AuthPage() {
                   </div>
                 </form>
               )}
+            </>
+          )}
+          {view === 'update-password' && (
+            <>
+              <div>
+                <h2 className="text-lg font-semibold text-content">Set new password</h2>
+                <p className="text-sm text-content-secondary">Choose a new password for your account</p>
+              </div>
+              <form onSubmit={handleSubmit(onUpdatePassword)} className="space-y-4" noValidate>
+                <Input
+                  id="password"
+                  label="New password"
+                  type="password"
+                  autoComplete="new-password"
+                  {...register('password', { required: true })}
+                />
+                {error && <p className="text-sm text-error">{error}</p>}
+                <Button type="submit" variant="primary" loading={isSubmitting} className="w-full">
+                  Update password
+                </Button>
+              </form>
             </>
           )}
         </Card>
