@@ -4,6 +4,7 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
 from app.routers import health
+from app.routers import business_profile, compliance
 
 
 @asynccontextmanager
@@ -24,3 +25,5 @@ app.add_middleware(
 )
 
 app.include_router(health.router)
+app.include_router(business_profile.router)
+app.include_router(compliance.router)
