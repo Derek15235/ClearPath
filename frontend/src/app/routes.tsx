@@ -8,6 +8,9 @@ import { PageSkeleton } from '../components/ui/Skeleton'
 const AuthPage = lazy(() =>
   import('../pages/AuthPage').then((m) => ({ default: m.AuthPage })),
 )
+const OnboardingPage = lazy(() =>
+  import('../pages/OnboardingPage').then((m) => ({ default: m.OnboardingPage })),
+)
 const DashboardPage = lazy(() => import('../pages/DashboardPage'))
 const CalendarPage = lazy(() => import('../pages/CalendarPage'))
 const VaultPage = lazy(() => import('../pages/VaultPage'))
@@ -23,6 +26,7 @@ const wrap = (Page: React.ComponentType) => (
 export const router = createBrowserRouter([
   { path: '/auth', element: wrap(AuthPage) },
   { path: '/auth/callback', element: <AuthCallbackPage /> },
+  { path: '/onboarding', element: wrap(OnboardingPage) },
   {
     path: '/',
     element: <RequireAuth />,
