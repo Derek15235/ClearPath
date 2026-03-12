@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { NavLink } from 'react-router-dom'
-import { LayoutDashboard, Calendar, FolderLock, ShieldAlert, Menu, X } from 'lucide-react'
+import { LayoutDashboard, Calendar, FolderLock, ShieldAlert, Settings, Menu, X } from 'lucide-react'
 import { BrandLogo } from './BrandLogo'
 import { UserProfileMenu } from './UserProfileMenu'
 import { MobileNav } from './MobileNav'
@@ -10,6 +10,7 @@ export const NAV_LINKS = [
   { to: '/calendar',    label: 'Calendar',    icon: Calendar },
   { to: '/vault',       label: 'Vault',       icon: FolderLock },
   { to: '/risk-center', label: 'Risk Center', icon: ShieldAlert },
+  { to: '/settings',   label: 'Settings',    icon: Settings },
 ] as const
 
 export function TopNavigationBar() {
