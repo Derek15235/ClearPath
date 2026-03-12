@@ -7,7 +7,7 @@ class Settings(BaseSettings):
     supabase_jwt_secret: str
     database_url: str = "postgresql+asyncpg://localhost/clearpath"
 
-    model_config = {"env_file": ".env"}
+    model_config = {"env_file": "../.env", "extra": "ignore"}
 
 
 settings = Settings()

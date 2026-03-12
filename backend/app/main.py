@@ -9,16 +9,20 @@ from app.routers import business_profile, compliance
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
-    # Startup: place initialization here (e.g., DB pool) as phases require
+    from app.database import engine
+    from app.models.business_profile import Base
+
+    async with engine.begin() as conn:
+        await conn.run_sync(Base.metadata.create_all)
     yield
-    # Shutdown: cleanup here
+    await engine.dispose()
 
 
 app = FastAPI(title="ClearPath API", version="0.1.0", lifespan=lifespan)
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:5173"],  # Vite dev server
+    allow_origins=["http://localhost:5173", "http://localhost:5176"],  # Vite dev server
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],

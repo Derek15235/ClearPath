@@ -1,10 +1,13 @@
+import jwt
+from jwt import PyJWKClient
 from fastapi import HTTPException, Security
 from fastapi.security import HTTPAuthorizationCredentials, HTTPBearer
-from jose import JWTError, jwt
 
 from app.config import settings
 
 security = HTTPBearer()
+
+_jwks_client = PyJWKClient(f"{settings.supabase_url}/auth/v1/.well-known/jwks.json")
 
 
 async def get_current_user(
@@ -12,17 +15,17 @@ async def get_current_user(
 ) -> dict:
     """
     FastAPI dependency that validates a Supabase JWT from the Authorization header.
-    Use as: user = Depends(get_current_user) on any protected endpoint.
-    Supabase JWTs are HS256 signed with the JWT Secret from Dashboard > Settings > API.
+    Fetches the signing key from Supabase's JWKS endpoint automatically.
     """
     token = credentials.credentials
     try:
+        signing_key = _jwks_client.get_signing_key_from_jwt(token)
         payload = jwt.decode(
             token,
-            settings.supabase_jwt_secret,
-            algorithms=["HS256"],
+            signing_key.key,
+            algorithms=["ES256", "HS256"],
             audience="authenticated",
         )
         return payload
-    except JWTError as exc:
+    except jwt.PyJWTError as exc:
         raise HTTPException(status_code=401, detail="Invalid or expired token") from exc

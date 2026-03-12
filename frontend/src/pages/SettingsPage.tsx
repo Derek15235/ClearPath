@@ -89,7 +89,7 @@ export default function SettingsPage() {
     setLoading(true)
     setError(null)
     try {
-      const profile = await apiFetch<BusinessProfileResponse>('/api/business-profile')
+      const profile = await apiFetch<BusinessProfileResponse>('/api/business-profile/')
       const mapped = profileToForm(profile)
       setSavedForm(mapped)
       setForm(mapped)
@@ -109,7 +109,7 @@ export default function SettingsPage() {
     setSaving(true)
     setSaveSuccess(false)
     try {
-      await apiFetch('/api/business-profile', {
+      await apiFetch('/api/business-profile/', {
         method: 'PUT',
         body: JSON.stringify(formToApiBody(form)),
       })

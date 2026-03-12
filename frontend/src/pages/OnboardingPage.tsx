@@ -79,7 +79,7 @@ export function OnboardingPage() {
     setIsSubmitting(true)
     setSubmitError(null)
     try {
-      await apiFetch('/api/business-profile', {
+      await apiFetch('/api/business-profile/', {
         method: 'POST',
         body: JSON.stringify({
           industry: formData.industry,

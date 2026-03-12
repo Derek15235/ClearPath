@@ -13,7 +13,7 @@ export function RequireAuth() {
   useEffect(() => {
     if (!session || hasProfile !== null) return
 
-    apiFetch<BusinessProfileResponse>('/api/business-profile')
+    apiFetch<BusinessProfileResponse>('/api/business-profile/')
       .then(() => {
         setHasProfile(true)
       })
