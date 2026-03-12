@@ -1,6 +1,9 @@
 # ClearPath
 
-An AI-enhanced compliance navigator that helps small and mid-sized businesses understand their regulatory obligations. Built as a learning project to gain hands-on experience with **FastAPI**, **LangChain**, **RAG pipelines**, and modern full-stack architecture.
+> **Status: Work in Progress / Experimental**
+> This is an active learning project -- things are evolving, breaking, and being rebuilt as I explore new tools. Expect rough edges.
+
+An AI-enhanced compliance navigator that helps small and mid-sized businesses understand their regulatory obligations. Built as a hands-on learning project to get experience with **FastAPI**, **LangChain**, **RAG pipelines**, and modern full-stack architecture.
 
 ## What It Does
 
@@ -166,8 +169,14 @@ The project is planned in 9 phases. Phases 1-3 are complete:
 
 ## What I'm Learning
 
+This project is primarily a vehicle for learning. I'm figuring things out as I go -- the architecture will change as I understand these tools better.
+
 - **FastAPI** -- async request handling, dependency injection, Pydantic v2 schemas, middleware patterns
 - **SQLAlchemy 2.0** -- async sessions, declarative models, custom type decorators, Alembic migrations
 - **LangChain + RAG** *(next)* -- document loading, text splitting, embedding pipelines, retrieval-augmented generation
 - **pgvector** *(next)* -- vector similarity search for matching regulations to business profiles
 - **React patterns** -- Zustand for state, lazy routes with Suspense, Radix for accessible UI, Motion for animations
+
+## Disclaimer
+
+This is an experimental/educational project, not production software. I'm using it to learn modern full-stack development patterns and AI tooling. Feedback and suggestions are welcome.
