@@ -4,7 +4,7 @@ import react from '@vitejs/plugin-react-swc'
 
 export default defineConfig({
   plugins: [react()],
-  envDir: '..',
+  envDir: '.',
   test: {
     globals: true,
     environment: 'jsdom',
