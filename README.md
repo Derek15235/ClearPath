@@ -30,28 +30,40 @@ Small business owners face a maze of federal, state, and industry-specific regul
 
 ```
 ClearPath/
-├── frontend/                   # React SPA
-│   ├── src/
-│   │   ├── app/               # Router config with lazy-loaded routes
-│   │   ├── components/        # UI primitives, layout shell, auth guards, onboarding steps
-│   │   ├── pages/             # Page-level components
-│   │   ├── stores/            # Zustand stores (auth, onboarding)
-│   │   ├── lib/               # API client, Supabase client, utilities
-│   │   └── types/             # Shared TypeScript types + Zod schemas
-│   └── vite.config.ts
+├── .env                        # Shared env vars for frontend + backend (git-ignored)
+├── package.json                # Frontend/Backend concurrent scripts
+├── pyproject.toml              # Python project configuration
+├── requirements.txt            # Python dependencies
+├── vite.config.ts              # Vite frontend configuration
 │
-├── backend/                    # FastAPI API server
-│   ├── app/
-│   │   ├── routers/           # REST endpoints (business profile CRUD, compliance stub)
-│   │   ├── models/            # SQLAlchemy models with cross-DB type decorators
-│   │   ├── schemas/           # Pydantic request/response schemas
-│   │   ├── middleware/        # JWT auth via Supabase JWKS endpoint
-│   │   ├── config.py          # Pydantic Settings (reads from root .env)
-│   │   └── database.py        # Async engine + session factory
-│   ├── alembic/               # Database migrations
-│   └── tests/                 # Async test suite with in-memory SQLite fixtures
+├── app/                        # FastAPI Application Core
+│   ├── config.py               # Pydantic Settings (reads from root .env)
+│   ├── database.py             # Async engine + session factory
+│   ├── middleware/             # JWT auth via Supabase JWKS endpoint
+│   ├── models/                 # SQLAlchemy models with cross-DB type decorators
+│   ├── schemas/                # Pydantic request/response schemas
+│   └── services/               # Core business logic
 │
-└── .env                        # Shared env vars for frontend + backend (git-ignored)
+├── routes/                     # FastAPI Route Endpoints
+│   ├── business_profile.py
+│   ├── compliance.py
+│   └── health.py
+│
+├── resources/                  # Frontend Resources
+│   └── js/                     # React SPA (TypeScript)
+│       ├── app/                # Router config with lazy-loaded routes
+│       ├── components/         # UI primitives, layout shell, auth guards, onboarding steps
+│       ├── pages/              # Page-level components
+│       ├── stores/             # Zustand stores (auth, onboarding)
+│       ├── lib/                # API client, Supabase client, utilities
+│       ├── types/              # Shared TypeScript types + Zod schemas
+│       └── main.tsx            # React application entrypoint
+│
+├── database/                   # Database configuration
+│   └── versions/               # Alembic database migrations
+│
+├── public/                     # Static Vite assets
+└── tests/                      # Python async test suite
 ```
 
 ## Getting Started
@@ -70,20 +82,17 @@ git clone https://github.com/yourusername/ClearPath.git
 cd ClearPath
 
 # Create .env from the template values below
-cp .env.example .env
+cp .env.backend.example .env
 # Then fill in your Supabase credentials (see Environment Variables below)
 
-# Backend
-cd backend
+# Python Backend Setup
 python3 -m venv .venv
 source .venv/bin/activate
 pip install -r requirements.txt
-uvicorn app.main:app --reload    # runs on :8000
 
-# Frontend (in a separate terminal)
-cd frontend
+# Run Frontend and Backend Together
 npm install
-npm run dev                      # runs on :5173
+npm run dev                      # Concurrently runs Vite (frontend) and Uvicorn (backend)
 ```
 
 ### Environment Variables
@@ -109,12 +118,11 @@ Find these in your Supabase dashboard under **Project Settings > API Keys** and 
 
 ```bash
 # Backend
-cd backend && source .venv/bin/activate
+source .venv/bin/activate
 pytest -v                        # 7 tests
 
 # Frontend
-cd frontend
-npm test                         # Vitest watch mode
+npm run test                     # Vitest watch mode
 ```
 
 ## What I Built (So Far)
